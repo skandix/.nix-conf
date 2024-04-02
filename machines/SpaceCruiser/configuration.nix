@@ -9,6 +9,7 @@
     # core dotfiles + graphical things
     ../../users
     ../../users/hx
+    ../../users/hx/i3
     ../../users/hx/gui.nix
     ../../users/hx/cli.nix
 
@@ -17,7 +18,6 @@
     ../../common/docker.nix
     ../../common/bluetooth.nix
     ../../common/fonts.nix
-    ../../common/networking-extra.nix
     ../../common/laptop.nix
 
     # CPU Microcode

@@ -8,17 +8,16 @@
     # core dotfiles + graphical things
     ../../users
     ../../users/hx
+    ../../users/hx/i3
     ../../users/hx/gui.nix
     ../../users/hx/cli.nix
 
     # Common
-    # ../../common/wireguard.nix
     #../../common/bluetooth.nix
     ../../common/docker.nix
     ../../common/networkmanager.nix
     ../../common/fonts.nix
     ../../common/pipewire.nix
-    #../../common/tailscale.nix
     #../../common/virtualbox.nix
 
     # CPU Microcode
