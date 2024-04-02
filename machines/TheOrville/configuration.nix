@@ -8,9 +8,9 @@
     # core dotfiles + graphical things
     ../../users
     ../../users/hx
+    ../../users/hx/i3
     ../../users/hx/gui.nix
     ../../users/hx/cli.nix
-    ../../users/hx/i3
 
     # Common
     ../../common/docker.nix
@@ -18,7 +18,6 @@
     ../../common/games.nix
     ../../common/networkmanager.nix
     ../../common/pipewire.nix
-    ../../common/networking-extra.nix
     ../../common/security.nix
     ../../common/nix-pkg-allow.nix
     ../../common/amdcpu.nix
@@ -33,10 +32,12 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber= true;
 
+
   networking.hostName = "TheOrville";
   networking.useDHCP = false;
   networking.interfaces.enp5s0.useDHCP = true;
-  networking.interfaces.wlp6s0.useDHCP = true;
+  networking.interfaces.wlp6s0.useDHCP = false;
+  #systemd.network.wait-online.enable = false;
 
   i18n.defaultLocale = "en_GB.UTF-8";
   console = { keyMap = "no"; };

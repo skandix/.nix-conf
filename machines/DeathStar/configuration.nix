@@ -18,7 +18,7 @@
     ../../common/networkmanager.nix
     ../../common/fonts.nix
     ../../common/pipewire.nix
-    ../../common/tailscale.nix
+    #../../common/tailscale.nix
     #../../common/virtualbox.nix
 
     # CPU Microcode
