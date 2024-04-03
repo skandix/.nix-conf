@@ -22,16 +22,29 @@
     ../../common/nix-pkg-allow.nix
     ../../common/amdcpu.nix
     ../../common/amdgpu.nix
-
-    # WG
-    #./c137.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber= true;
-
+  boot.loader = {
+    #systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
+      extraEntries = ''
+        menuentry "IIDX" --class windows --class os {
+          insmod part_gpt
+          insmod fat
+          insmod search_fs_uuid
+          insmod chain
+          search --no-floppy --fs-uuid --set=root 56ad5e22-b84b-4b32-81bb-7e0ea58414bd
+          chainloader \EFI\BOOT\BOOTX64.EFI
+        }
+      '';
+    };
+  };
+  boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "TheOrville";
   networking.useDHCP = false;
@@ -45,5 +58,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   home-manager.users.hx.home.stateVersion = "23.11";
   time.timeZone = "Europe/Oslo";
+  time.hardwareClockInLocalTime = true;
   system.stateVersion = "23.11";
   }
