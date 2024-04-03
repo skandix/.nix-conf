@@ -37,7 +37,7 @@
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
   systemd.network.wait-online.enable = false;
-  boot.initrd.systemd.network.wait-online.enable = false;
+  systemd.network.wait-online.timeout = 0;
 
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {

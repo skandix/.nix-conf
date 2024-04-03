@@ -7,5 +7,8 @@
     autoPrune.enable = true;
 };
 
-  environment.systemPackages = with pkgs; [ docker-compose ];
+environment.systemPackages = with pkgs; [ docker-compose ];
+systemd.network.wait-online.ignoredInterfaces = [
+  "docker0"
+];
 }
