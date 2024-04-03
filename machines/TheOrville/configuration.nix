@@ -3,7 +3,7 @@
 {
   imports = [
     # Hardware udev rules
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix
 
     # core dotfiles + graphical things
     ../../users
@@ -46,4 +46,6 @@
   home-manager.users.hx.home.stateVersion = "23.11";
   time.timeZone = "Europe/Oslo";
   system.stateVersion = "23.11";
+  services.nix-daemon.enable = true;
+  nix.package = pkgs.nix;
   }

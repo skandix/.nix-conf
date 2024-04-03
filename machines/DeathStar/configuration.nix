@@ -11,6 +11,7 @@
     ../../users/hx/i3
     ../../users/hx/gui.nix
     ../../users/hx/cli.nix
+    ../../users/hx/i3
 
     # Common
     #../../common/bluetooth.nix

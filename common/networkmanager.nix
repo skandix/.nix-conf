@@ -6,9 +6,9 @@
   environment.systemPackages = with pkgs; [
     networkmanager
     networkmanagerapplet
-    networkmanager-openvpn
-    networkmanager-openconnect
-    openvpn
+    # networkmanager-openvpn
+    # networkmanager-openconnect
+    # openvpn
   ];
 
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
