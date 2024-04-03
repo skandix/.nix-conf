@@ -12,10 +12,13 @@
   ];
 
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
-  networking.enableIPv6 = true;
+  networking.enableIPv6 = false;
   networking.wireguard = { enable = true; };
 
-  # systemd.network.wait-online.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+
   # systemd.network.wait-online.timeout = 0;
 
   # systemd.network.wait-online.ignoredInterfaces = [
