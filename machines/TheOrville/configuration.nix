@@ -3,7 +3,7 @@
 {
   imports = [
     # Hardware udev rules
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix
 
     # core dotfiles + graphical things
     ../../users
@@ -60,4 +60,6 @@
   time.timeZone = "Europe/Oslo";
   time.hardwareClockInLocalTime = true;
   system.stateVersion = "23.11";
+  services.nix-daemon.enable = true;
+  nix.package = pkgs.nix;
   }

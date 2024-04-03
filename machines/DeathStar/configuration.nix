@@ -11,6 +11,7 @@
     ../../users/hx/i3
     ../../users/hx/gui.nix
     ../../users/hx/cli.nix
+    ../../users/hx/i3
 
     # Common
     #../../common/bluetooth.nix
@@ -45,5 +46,5 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   home-manager.users.hx.home.stateVersion = "23.11";
   time.timeZone = "Europe/Oslo";
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05"; # Did you read the comment?... no
 }
