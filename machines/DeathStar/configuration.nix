@@ -36,6 +36,8 @@
   networking.hostName = "DeathStar";
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
 
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
@@ -46,5 +48,5 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   home-manager.users.hx.home.stateVersion = "23.11";
   time.timeZone = "Europe/Oslo";
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05"; # Did you read the comment?... no
 }
