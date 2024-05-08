@@ -4,7 +4,7 @@ set $altMod Mod1
 set $term alacritty
 set $screen flameshot gui
 #set $screen /home/skandix/.ssh/zipline.sh &
-set $lock dm-tool lock
+set $lock xsecurelock
 
 ### FONT ###
 font pango:Terminus 14px
