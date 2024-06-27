@@ -10,20 +10,24 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # darwin = {
-    #   url = "github:LnL7/nix-darwin";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
-    # nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-darwin.url = "github:LnL7/nix-darwin/master"
   };
 
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, ...}:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nix-darwin, ...}:
     let
       system = "x86_64-linux";
-      # pkgs = nixpkgs.legacyPackages."x86_64-linux";
       unstable = nixpkgs-unstable.legacyPackages.${system};
     in {
+      darwinConfigurations."SpaceCruiser" = nix-darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./machines/SpaceCruiser
+          ];
+      };
       nixosConfigurations = {
         DeathStar = nixpkgs.lib.nixosSystem {
           specialArgs = {

@@ -12,19 +12,7 @@
     enable = true;
     autorun = true;
     xkb.layout = "no";
-  };
-  services.libinput.enable = true;
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeters.enso.enable = true;
-  };
-  services.displayManager.defaultSession = "none+i3";
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    package = pkgs.i3;
-    extraPackages = with pkgs; [ pkg-config xclip arandr feh i3status ];
-  };
-  services.xserver.extraConfig = ''
+    extraConfig = ''
     Section "ServerFlags"
     Option          "BlankTime"     "0"
     Option          "StandbyTime"   "0"
@@ -33,7 +21,25 @@
     Option "dpms" "false"
 
     EndSection
-  '';
+    '';
+
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3;
+      extraPackages = with pkgs; [ pkg-config xclip arandr feh i3status ];
+    };
+
+    displayManager = {
+      lightdm = {
+        enable = true;
+        greeters.enso.enable = true;
+      };
+      defaultSession = "none+i3"
+    };
+  };
+  services.libinput.enable = true;
+
+  
 
   home-manager.users.hx = {
     xdg.configFile = {
